@@ -11,6 +11,11 @@
 - [Instructions on how to run the project](#instructions-on-how-to-run-the-project)
 -
 ---
+## Structure of the repository
+
+The repository conatins the next files and folderrs:
+
+- `images`: folder with images to README.md
 
 ## Description of the problem
 
@@ -28,19 +33,35 @@ The aim of this project is to classify the types of date fruit<b>, that are Barh
 
 <b>Data set source:</b>
 > https://www.muratkoklu.com/datasets/
+
 <p align="justify">
 In accordance with this purpose, 898 images of seven different date fruit types were obtained via the computer vision system (CVS). Through image processing techniques, a total of 34 features, including morphological features, shape, and color, were extracted from these images. 
-
 </p>
 
+## Setting up the virtual environment
+
+<p align="justify">
+A virtual environment allows us to manage libraries or dependencies for different projects without having the version compatibility problem by creating isolated virtual environments for them. There are many environments managment systems for python such as conda, pipenv, venv, virtualenv and so on, but for this project I used pipenv. 
+</p>
+
+Next, I'll explain how to install pipenv, and create an environment for a python project.
+Before staring , first we need to install pip, run these codes in the console.
+> For windows:
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  python get-pip.py
+> For linux:
+  sudo apt update
+  sudo apt install python3-pip
+  
+ 
 ## Instructions on how to run the project
 
-## Structure of the project
-
-The repository conatins the next files and folderrs:
-
-- `images`: folder with images to README.md
 
 
 ## References
+
+
+## Contact 
+
+
 
