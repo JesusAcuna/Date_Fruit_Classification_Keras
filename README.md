@@ -45,14 +45,22 @@ A virtual environment allows us to manage libraries or dependencies for differen
 </p>
 
 Next, I'll explain how to install pipenv, and create an environment for a python project.
-Before staring , first we need to install pip, run these codes in the console.
+Before staring , first we need to install pip, which is a package-management system to install python packages, run these codes in the console.
+
 > For windows:
-  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-  python get-pip.py
-> For linux:
-  sudo apt update
-  sudo apt install python3-pip
+
+- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+- python get-pip.py
   
+> For linux:
+
+> sudo apt update
+> sudo apt install python3-pip
+  
+Then after installing pip, we need to install pipenv
+
+
+- 
  
 ## Instructions on how to run the project
 
