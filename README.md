@@ -141,7 +141,7 @@ From the image below, we can see that there are about 200 examples where the tar
 ### 6.3. Feature importance analysis
 
 <p align="justify"> 
-Since all the features are numerical I did a Perason correlation coefficient analysis, which measures the linear relationship between two variables. This has to be done after normalization of the data as seen in [Data preparation and data cleaning](#6-data-preparation-and-data-cleaning) , you can visualize it below
+Since all the features are numerical I did a Perason correlation coefficient analysis, which measures the linear relationship between two variables. This has to be done after normalization of the data as seen in [Data preparation and data cleaning](#61-data-preparation-and-data-cleaning) , you can visualize it below
 </p>
 
 <p align="center">
