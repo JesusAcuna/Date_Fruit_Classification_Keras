@@ -52,13 +52,11 @@ Before starting , first we need to install pip, which is a package-management sy
 > For windows:
 
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-
     python get-pip.py
   
 > For linux:
 
     sudo apt update
-
     sudo apt install python3-pip
   
 Then after installing pip, we need to install pipenv
@@ -70,9 +68,7 @@ Once here, it's necessary to clone this repository from Github to your computer,
 </p>
 
     mkdir ./file_name
-    
     cd ./file_name
-    
     git clone git@github.com:JesusAcuna/Date_Fruit_Classification_Keras.git
 
 After that, we need to activate the virtual environment
@@ -116,13 +112,31 @@ We can download the data from the web : https://www.muratkoklu.com/datasets/vtdh
 
 ## 6. Notebook
 
+<p align="justify">
 Data preparation, data cleaning, EDA, feature importance analysis, model selection and parameter tuning was performed in `Date_Fruit_Classification.ipynb` 
+</p>
  
 ### 6.1. Data preparation and data cleaning 
 
 <p align="justify">
-Data contains 898 examples,33 features, and a target variable of 7 classes in total explained in [Data description](#3-data-description), these features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information, the main characteristic is that they are all numerical features, and some are bigger values than other ones, that's why I applied a normalization with a mean equals to 0 and a standard deviation equals to  1
+The data contains 898 examples,33 features, and a target variable of 7 classes, this was explained in [Data description](#3-data-description). These features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information. The dataframe doesn't contain missing values,  and to train the model it is required to change the target variable from object to numerical like below.
 </p>
+<p align="center">  
+['DOKOL': 0, 'SAFAVI': 1, 'ROTANA': 2, 'DEGLET': 3, 'SOGAY': 4, 'IRAQI': 5, 'BERHI': 6]
+</p>  
+<p align="justify"> 
+The main characteristic is that they are all numerical features, and some are bigger values than other ones, that's why I applied a normalization with a mean equals to 0 and a standard deviation equals to  1. To do this part I used StandardScaler from sklearn.preprocessing to standarize all the features, then I saved the object using the `joblib` library with the name `std_scaler.bin`, this archive will be used later to make the predictions.
+</p>
+
+### 6.2. Exploratory Data Analysis (EDA)
+
+
+
+### 6.3. Feature importance analysis
+
+### 6.4. Model selection
+
+### 6.5. Parameter tuning
 
 
 ## Instructions on how to run the project
