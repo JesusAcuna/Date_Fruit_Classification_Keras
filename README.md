@@ -119,17 +119,26 @@ Data preparation, data cleaning, EDA, feature importance analysis, model selecti
 ### 6.1. Data preparation and data cleaning 
 
 <p align="justify">
-The data contains 898 examples,33 features, and a target variable of 7 classes, this was explained in [Data description](#3-data-description). These features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information. The dataframe doesn't contain missing values,  and to train the model it is required to change the target variable from object to numerical like below.
+The data contains 898 examples, 33 features, and a target variable of 7 classes, this was explained in [Data description](#3-data-description). These features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information. The dataframe doesn't contain missing values,  and to train the model it is required to change the target variable from object to numerical like below.
 </p>
 <p align="center">  
 ['DOKOL': 0, 'SAFAVI': 1, 'ROTANA': 2, 'DEGLET': 3, 'SOGAY': 4, 'IRAQI': 5, 'BERHI': 6]
 </p>  
 <p align="justify"> 
-The main characteristic is that they are all numerical features, and some are bigger values than other ones, that's why I applied a normalization with a mean equals to 0 and a standard deviation equals to  1. To do this part I used StandardScaler from sklearn.preprocessing to standarize all the features, then I saved the object using the `joblib` library with the name `std_scaler.bin`, this archive will be used later to make the predictions.
+The main characteristic is that they are all numerical features, and some are bigger values than other ones, that's why I applied normalization with a mean equals to 0 and a standard deviation equals to  1. To do this part I used StandardScaler from sklearn.preprocessing to standarize all the features, then I saved the object using the `joblib` library with the name `std_scaler.bin`, this archive will be used later to make the predictions.
 </p>
 
 ### 6.2. Exploratory Data Analysis (EDA)
 
+<p align="justify"> 
+From the EDA there are about 200 cases where the target variable is 'DOKOL' or 'SAFAVI'. Both clases along with 'ROTANA' class are the three largest classes, on the other hand 'BERHI','DEGLET','IRAQI' and 'SOGAY' have cases lower than 100.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/57125377/206633540-c821cdff-01db-4f79-9dc4-35af0e678742.jpg">
+</p>
+
+
+</p>
 
 
 ### 6.3. Feature importance analysis
