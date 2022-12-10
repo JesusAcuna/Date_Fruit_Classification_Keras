@@ -87,7 +87,7 @@ To exit the environment just type exit, when you are in the environment
   
     exit
     
-For this project I used this libraries:
+For this project I used these libraries:
 - flask          : to build the web service framework
 - tflite-runtime : lite tensorflow library for prediction
 - requests       : to make request to the web service 
