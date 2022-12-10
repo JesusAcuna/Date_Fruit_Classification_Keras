@@ -6,9 +6,9 @@
 ---
 ## Index
 
-- [Description of the problem](#description-of-the-problem)
+- 1 [Description of the problem](#1-description-of-the-problem)
 
-- [Instructions on how to run the project](#instructions-on-how-to-run-the-project)
+- 2 [Instructions on how to run the project](#instructions-on-how-to-run-the-project)
 -
 ---
 ## Structure of the repository
@@ -17,19 +17,19 @@ The repository conatins the next files and folderrs:
 
 - `images`: folder with images to README.md
 
-## Description of the problem
+## 1. Description of the problem
 
 <p align="justify">
 A great number of fruits are grown around the world, each of which has various types. The factors that determine the type of fruit are the external appearance features such as color, length, diameter, and shape. The external appearance of the fruits is a major determinant of the fruit type. Determining the variety of fruits by looking at their external appearance may necessitate expertise, which is time-consuming and requires great effort. 
 </p>
 
-## Objective
+## 2. Objective
 
 <p align="justify">
 The aim of this project is to classify the types of date fruit<b>, that are Barhee, Deglet Nour, Sukkary, Rotab Mozafati, Ruthana, Safawi, and Sagaiz</b> by using <b>a deep neural network model</b>.
 </p>
 
-## Data description
+## 3. Data description
 
 <b>Data set source:</b>
 > https://www.muratkoklu.com/datasets/
@@ -38,7 +38,7 @@ The aim of this project is to classify the types of date fruit<b>, that are Barh
 In accordance with this purpose, 898 images of seven different date fruit types were obtained via the computer vision system (CVS). Through image processing techniques, a total of 34 features, including morphological features, shape, and color, were extracted from these images. 
 </p>
 
-## Setting up the virtual environment
+## 4. Setting up the virtual environment
 
 <p align="justify">
 A virtual environment allows us to manage libraries or dependencies for different projects without having the version compatibility problem by creating isolated virtual environments for them. There are many environments managment systems for python such as conda, pipenv, venv, virtualenv and so on, but for this project I used pipenv. 
@@ -86,6 +86,17 @@ And install the content of these file`Pipfile` and `Pipfile.lock`, these ones co
 To exit the environment just type exit, when you are in the environment
   
     exit
+    
+For this project I used this libraries:
+- flask          : to build the web service framework
+- tflite-runtime : lite tensorflow library for prediction
+- requests       : to make request to the web service 
+- joblib         : to load the normalization object
+- scikit-learn   : to apply the normalization transformation to our request
+
+## 5. Data
+
+
 
 ## Instructions on how to run the project
 
