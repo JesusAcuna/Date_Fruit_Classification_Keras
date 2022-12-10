@@ -131,17 +131,24 @@ The main characteristic is that they are all numerical features, and some are bi
 ### 6.2. Exploratory Data Analysis (EDA)
 
 <p align="justify"> 
-From the EDA there are about 200 cases where the target variable is 'DOKOL' or 'SAFAVI'. Both clases along with 'ROTANA' class are the three largest classes, on the other hand 'BERHI','DEGLET','IRAQI' and 'SOGAY' have cases lower than 100.
+From the image below, we can see that there are about 200 examples where the target variable is 'DOKOL' or 'SAFAVI'. Both classes along with 'ROTANA' are the three largest classes, on the other hand 'BERHI','DEGLET','IRAQI' and 'SOGAY' have examples lower than 100. Also, I did some analysis on some features like area distribution and I found out that three classes had almost the same distribution range, and could be replaced by one, you can analyze all the features if you would like, but the idea is the same.
+</p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57125377/206633540-c821cdff-01db-4f79-9dc4-35af0e678742.jpg">
+  <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/target_distribution.png">
 </p>
-
-
-</p>
-
 
 ### 6.3. Feature importance analysis
+
+<p align="justify"> 
+Since all the features are numerical I did a Perason correlation coefficient analysis, which measures the linear relationship between two variables. This has to be done after normalization of the data, you can visualize it below 
+</p>
+
+<p align="center">
+  <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/correlation.png">
+</p>
+
+
 
 ### 6.4. Model selection
 
