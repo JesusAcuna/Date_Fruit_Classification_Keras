@@ -68,6 +68,7 @@ Then after installing pip, we need to install pipenv
 <p align="justify">
 Once here, it's necessary to clone this repository from Github to your computer, so create a folder in the path of your choice, and give it a name.
 </p>
+
     mkdir ./file_name
     
     cd ./file_name
@@ -78,11 +79,11 @@ After that, we need to activate the virtual environment
   
     pipenv shell
     
-And install the content of these file`Pipfile` and `Pipfile.lock, these ones contain information about the libraries and dependencies I used.
+And install the content of these file`Pipfile` and `Pipfile.lock`, these ones contain information about the libraries and dependencies I used.
 
     pipenv install
     
-
+To exit the environment just type exit
 
  
 ## Instructions on how to run the project
