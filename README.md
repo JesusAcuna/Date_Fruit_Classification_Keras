@@ -83,9 +83,10 @@ And install the content of these file`Pipfile` and `Pipfile.lock`, these ones co
 
     pipenv install
     
-To exit the environment just type exit
+To exit the environment just type exit, when you are in the environment
+  
+    exit
 
- 
 ## Instructions on how to run the project
 
 
