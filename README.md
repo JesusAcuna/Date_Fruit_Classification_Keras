@@ -44,23 +44,38 @@ In accordance with this purpose, 898 images of seven different date fruit types 
 A virtual environment allows us to manage libraries or dependencies for different projects without having the version compatibility problem by creating isolated virtual environments for them. There are many environments managment systems for python such as conda, pipenv, venv, virtualenv and so on, but for this project I used pipenv. 
 </p>
 
+<p align="justify">
 Next, I'll explain how to install pipenv, and create an environment for a python project.
 Before staring , first we need to install pip, which is a package-management system to install python packages, run these codes in the console.
+</p>
 
 > For windows:
 
-- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-- python get-pip.py
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
+    python get-pip.py
   
 > For linux:
 
-> sudo apt update
-> sudo apt install python3-pip
+    sudo apt update
+
+    sudo apt install python3-pip
   
 Then after installing pip, we need to install pipenv
+    
+    pip install pipenv
 
+Once here, it is necessary to clon this repository from Github
 
-- 
+    cd ./file_name
+    
+    git clone 
+
+create a folder and activate the virtual environment
+  
+    mkdir ./name_folder
+    
+    
  
 ## Instructions on how to run the project
 
