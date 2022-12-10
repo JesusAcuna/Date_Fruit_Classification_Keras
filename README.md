@@ -97,9 +97,9 @@ For this project I used this libraries:
 ## 5. Importing data
 
 <p align="justify">
-We can download the data from the web : [https://www.muratkoklu.com/datasets/](https://www.muratkoklu.com/datasets/vtdhnd06.php), this file is a zip file, so we need to make a request to that URL, save its content and extract all files it contains, the code below allows you to download it to the current path. The file we are interested in is Date_Fruit_Datasets.xlsx, which has an excel extension. 
+We can download the data from the web : https://www.muratkoklu.com/datasets/vtdhnd06.php, this file is a zip file, so we need to make a request to that URL, save its content and extract all files it contains, the code below is the first part of the `Date_Fruit_Classification.ipynb` and allows you to download it to the current path. The archive we are interested in is Date_Fruit_Datasets.xlsx, which is an excel extension. 
 </p>
-This is the first part of the `Date_Fruit_Classification.ipynb` and I'll leave the file in the repository  
+
 
     # Importing necessary modules
     import requests, zipfile
