@@ -46,7 +46,7 @@ A virtual environment allows us to manage libraries or dependencies for differen
 
 <p align="justify">
 Next, I'll explain how to install pipenv, and create an environment for a python project.
-Before staring , first we need to install pip, which is a package-management system to install python packages, run these codes in the console.
+Before starting , first we need to install pip, which is a package-management system to install python packages, run these codes in the console.
 </p>
 
 > For windows:
@@ -64,18 +64,26 @@ Before staring , first we need to install pip, which is a package-management sys
 Then after installing pip, we need to install pipenv
     
     pip install pipenv
-
-Once here, it is necessary to clon this repository from Github
-
+    
+<p align="justify">
+Once here, it's necessary to clone this repository from Github to your computer, so create a folder in the path of your choice, and give it a name.
+</p>
+    mkdir ./file_name
+    
     cd ./file_name
     
-    git clone 
+    git clone git@github.com:JesusAcuna/Date_Fruit_Classification_Keras.git
 
-create a folder and activate the virtual environment
+After that, we need to activate the virtual environment
   
-    mkdir ./name_folder
+    pipenv shell
     
+And install the content of these file`Pipfile` and `Pipfile.lock, these ones contain information about the libraries and dependencies I used.
+
+    pipenv install
     
+
+
  
 ## Instructions on how to run the project
 
