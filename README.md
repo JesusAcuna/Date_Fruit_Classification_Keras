@@ -94,9 +94,26 @@ For this project I used this libraries:
 - joblib         : to load the normalization object
 - scikit-learn   : to apply the normalization transformation to our request
 
-## 5. Data
+## 5. Importing data
 
+<p align="justify">
+We can download the data from the web : [https://www.muratkoklu.com/datasets/](https://www.muratkoklu.com/datasets/vtdhnd06.php), this file is a zip file, so we need to make a request to that URL, save its content and extract all files it contains, the code below allows you to download it to the current path. The file we are interested in is Date_Fruit_Datasets.xlsx, which has an excel extension. 
+</p>
+This is the first part of the 
 
+    # Importing necessary modules
+    import requests, zipfile
+    from io import BytesIO
+
+    # Defining the zip file URL
+    url = 'https://www.muratkoklu.com/datasets/vtdhnd06.php'
+
+    # Downloading the file by sending the request to the URL
+    req = requests.get(url)
+
+    # Extracting the zip file contents
+    zipfile= zipfile.ZipFile(BytesIO(req.content))
+    zipfile.extractall('./') #Current directory
 
 ## Instructions on how to run the project
 
