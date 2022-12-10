@@ -97,9 +97,8 @@ For this project I used these libraries:
 ## 5. Importing data
 
 <p align="justify">
-We can download the data from the web : https://www.muratkoklu.com/datasets/vtdhnd06.php, this file is a zip file, so we need to make a request to that URL, save its content and extract all files it contains, the code below is the first part of the `Date_Fruit_Classification.ipynb` and allows you to download it to the current path. The archive we are interested in is Date_Fruit_Datasets.xlsx, which is an excel extension. 
+We can download the data from the web : https://www.muratkoklu.com/datasets/vtdhnd06.php, this file is a zip file, so we need to make a request to that URL, save its content and extract all files it contains, the code below is the first part of the `Date_Fruit_Classification.ipynb` and allows you to download it to the current path. The archive we are interested in is Date_Fruit_Datasets.xlsx, which is an excel extension and this is the data that I'll work all the project, also this data is in the repository `Date_Fruit_Datasets`.
 </p>
-
 
     # Importing necessary modules
     import requests, zipfile
@@ -114,6 +113,17 @@ We can download the data from the web : https://www.muratkoklu.com/datasets/vtdh
     # Extracting the zip file contents
     zipfile= zipfile.ZipFile(BytesIO(req.content))
     zipfile.extractall('./') #Current directory
+
+## 6. Notebook
+
+Data preparation, data cleaning, EDA, feature importance analysis, model selection and parameter tuning was performed in `Date_Fruit_Classification.ipynb` 
+ 
+### 6.1. Data preparation and data cleaning 
+
+<p align="justify">
+Data contains 898 examples,33 features, and a target variable of 7 classes in total explained in [Data description](#3-data-description), these features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information, the main characteristic is that they are all numerical features, and some are bigger values than other ones, that's why I applied a normalization with a mean equals to 0 and a standard deviation equals to  1
+</p>
+
 
 ## Instructions on how to run the project
 
