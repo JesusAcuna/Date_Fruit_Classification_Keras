@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+tflite-runtime = "*"
+requests = "*"
+joblib = "*"
+scikit-learn = "==0.24.2"
+waitress = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
