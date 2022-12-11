@@ -183,7 +183,7 @@ The results show that in front of 150 test sets the best model is the third with
 </p>
 Box plot: 
 <p align="center">
-  <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/box_plot.png">
+  <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/model_3_architecture.png">
 </p>
 
 
