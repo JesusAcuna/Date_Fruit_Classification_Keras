@@ -159,9 +159,23 @@ The results show that there are 13 features that have values below 1e-1, that me
 <p align="justify"> 
 For model selection, I decided to choose a deep learning model tuned with Optuna library, for more information about optuna library you can check it out for more examples with keras in https://github.com/optuna/optuna-examples/tree/main/keras 
 
-The steps to obtain the best model are the following:
+According to the notebook the steps to obtain the best model are the following,:
 
-  1. The function `MakeTrial` creates a trial with optuna library, and based on the parameter ranges of my model  optuna evaluates the best accuracy result of my model according to these parameters.
+  1. The function `MakeTrial` creates a trial with optuna librar
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+, and based on the parameter ranges of my model  optuna evaluates the best accuracy result of my model according to these parameters.
   2. The function `Study_Statistics` shows the parameters of the best model such as number of hidden layers, activation function, learning rate, and so on.
   3. The function `MakeNeuralNetwork` creates a bigger model in epochs of the best model obtained, this is to see if the best model went into overfitting.
   4. The function `N_Models` puts all the previous steps together and creates a number of best models, this was done since optuna trial starts randomly and I wanted to have several models to analyze instead of one.
