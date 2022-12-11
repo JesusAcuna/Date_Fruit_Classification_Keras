@@ -214,7 +214,9 @@ Steps:
     - The range of epochs set to [300,350,400,450,500]
     - Number of epochs multiplier set to 6
   
-   The output of `Date_Fruit_Classification.ipynb` are  the file `std_scaler.bin` and the directories `4_Models_000123`, `150_Stability_045011`. Inside `4_Models_000123` is the Model_3 directory with the file ``
+   The output of `Date_Fruit_Classification.ipynb` are  the file `std_scaler.bin` and the directories `4_Models_000123`, `150_Stability_045011`.
+   
+   Inside `4_Models_000123` is the Model_3 directory with the file `Best_Model_3.h5`, which contains all the parameters of the best model I trained. I will put    it inside the repository to be able to do the next step.
    
   3. 
     
