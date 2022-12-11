@@ -224,6 +224,8 @@ Steps:
   
   5. Run the file `predict_test.py` to make a request to the web service, this file has an example labeled with class 'DOKOL'
   
+  This is the result of the request: 
+  
     {'BERHI': 5.466628351197495e-16, 'DEGLET': 3.063003077841131e-06, 'DOKOL': 0.9999969005584717, 'IRAQI': 3.4314470696553474e-25, 'ROTANA':    1.4219495495647376e-22, 'SAFAVI': 1.904230234707733e-23, 'SOGAY': 1.1417237294475413e-10}
   
   
