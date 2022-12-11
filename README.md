@@ -154,27 +154,37 @@ Since all the features are numerical I did a Pearson correlation coefficient ana
 The results show that there are 13 features that have values below 1e-1, that means these 13 features are not correlated at all. so they could be deleted from the model to have a better result.
 </p>
 
-### 6.4. Model selection
+### 6.4. Model selection and parameter tuning
 
 <p align="justify"> 
-For model selection, I decided to choose a deep learning model tuned with Optuna library.
-The steps to obtain the best model is the following:
+For model selection, I decided to choose a deep learning model tuned with Optuna library, for more information about optuna library you can check it out for more examples with keras in https://github.com/optuna/optuna-examples/tree/main/keras 
+
+The steps to obtain the best model are the following:
 
   1. The function `MakeTrial` creates a trial with optuna library, and based on the parameter ranges of my model  optuna evaluates the best accuracy result of my model according to these parameters.
-  2. The function Study_Statistics shows the parameters of the best model such as number of hidden layers, activation function, learning rate, and so on.
-  3. The function MakeNeuralNetwork creates a bigger model in epochs of the best model obtained, this is to see if the best model went into overfitting.
-  4. The function N_Models puts all the previous steps together and creates a number of best models, this was done since optuna trial start randomly and I wanted to have several models to analyze instead of one.
-  5. The final step is the stability test, in that part I tested the stability of 4 models, giving them as input different test sets of different sizes.
+  2. The function `Study_Statistics` shows the parameters of the best model such as number of hidden layers, activation function, learning rate, and so on.
+  3. The function `MakeNeuralNetwork` creates a bigger model in epochs of the best model obtained, this is to see if the best model went into overfitting.
+  4. The function `N_Models` puts all the previous steps together and creates a number of best models, this was done since optuna trial starts randomly and I wanted to have several models to analyze instead of one.
+  5. The final step is the stability test, in that part I tested the stability of four models, giving them as input different test sets of different sizes.
   
-The results show that in front of 150 test sets the best model is the third with a best accuracy value of 0.9333, 
-</p>
+The results show that in front of 150 test sets the best model is the third with a best accuracy value of `0.9333`, the architecture of this model is:
+- Number of hidden layers :2 
+- Layer 1 number of neurons: 352
+- Layer 1 activation function: elu
+- Layer 1 dropout: 0.0
+- Layer 2 number of neurons: 96
+- Layer 2 activation function: selu
+- Layer 2 dropout: 0.02
+- Learning rate: 0.001760
+- beta_1: 0.075162
+- beta_2: 0.093541
+- epsilon: 7.775386e-07
 
+</p>
+Box plot: 
 <p align="center">
   <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/box_plot.png">
 </p>
-
-
-### 6.5. Parameter tuning
 
 
 ## Instructions on how to run the project
