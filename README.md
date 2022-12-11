@@ -16,8 +16,8 @@
   - 6.2.[Exploratory Data Analysis (EDA)](#62-exploratory-data-analysis-eda)
   - 6.3.[Feature importance analysis](#63-feature-importance-analysis)
   - 6.4.[Model selection and parameter tuning](#64-model-selection-and-parameter-tuning)
-- 7.[Locally deployment](#7-locally-deployment)
-
+- 7.[Notebook](#6-notebook)
+- 8.[ 
 ---
 ## Structure of the repository
 
@@ -192,7 +192,36 @@ Model 3 Architecture:
   <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/model_3_architecture.png">
 </p>
 
-## 7. Locally deployment 
+## 7. Instructions on how to run the project
+
+Steps:
+  1. Create an environment, this is explained here [Setting up the virtual environment](#4-setting-up-the-virtual-environment)
+  2. Run the file `train.py`, this  python file is modified, so that it doesn't take you a long time to train the models, with these parameters:
+  
+    - Number of models set to 2, line 390
+    - Number of trials set to 1, line 391
+    - Number of epochs set to 40, line 164
+    - Number of epochs multiplier set to 2, linde 267
+  
+   The file `Date_Fruit_Classification.ipynb` was trained for 2 hours, for that I used a virtual machine on https://saturncloud.io/ with these parameters:
+    
+    - Number of models set to 4
+    - Timeout of each model set to 1800 seconds
+    - The range of epochs set to [300,350,400,450,500]
+    - Number of epochs multiplier set to 6
+  
+   The output of `Date_Fruit_Classification.ipynb` are  the file `std_scaler.bin` and the directories `4_Models_000123`, `150_Stability_045011`
+    
+    
+  
+  in console type:
+  
+    python train.py
+    
+   
+  
+  
+## 8. Locally deployment 
 
 
 
