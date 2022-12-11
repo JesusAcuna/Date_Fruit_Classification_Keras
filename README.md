@@ -199,7 +199,7 @@ Model 3 Architecture:
 ## 7. Instructions on how to run the project
 
 Steps:
-  1. Create an environment, this is explained here [Setting up the virtual environment](#4-setting-up-the-virtual-environment)
+  1. Create an environment, this is explained here 4. [Setting up the virtual environment](#4-setting-up-the-virtual-environment)
   2. Run the file `train.py`, this  python file is modified, so that it doesn't take you a long time to train the models, with these parameters:
   
     - Number of models set to 2, line 390
@@ -218,8 +218,9 @@ Steps:
    
    Inside `4_Models_000123` is the Model_3 directory with the file `Best_Model_3.h5`, which contains all the parameters of the best model I trained. I will put    it inside the repository to be able to do the next step.
    
-  3. 
+  3. Run the file `converter_to_tflite.py` to convert the model `Best_Model_3.h5` to `Best_Model_3.tflite`, since the tensorFlow library is big and we need to use a tensorFlow lite library, which is a lighter library to predict.
     
+  4. 
     
   
   in console type:
