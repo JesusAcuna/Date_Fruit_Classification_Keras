@@ -101,6 +101,7 @@ For this project I used these libraries:
 - requests       : to make request to the web service 
 - joblib         : to load the normalization object
 - scikit-learn   : to apply the normalization transformation to our request
+- waitress       :
 
 ## 5. Importing data
 
