@@ -10,7 +10,7 @@
 - 2.[Objective](#2-objective)
 - 3.[Data description](#3-data-description)
 - 4.[Setting up the virtual environment](#4-setting-up-the-virtual-environment)
-- 5.[Importing datan](#5-importing-data)
+- 5.[Importing data](#5-importing-data)
 - 6.[Notebook](#6-notebook)
   - 6.1.[Data preparation and data cleaning ](#61-data-preparation-and-data-cleaning) 
   - 6.2.[Exploratory Data Analysis (EDA)](#62-exploratory-data-analysis-eda)
@@ -21,7 +21,7 @@
 ---
 ## Structure of the repository
 
-The repository conatins the next files and folderrs:
+The repository contains the next files and folders:
 
 - `images`: folder with images to README.md
 
@@ -49,12 +49,12 @@ In accordance with this purpose, 898 images of seven different date fruit types 
 ## 4. Setting up the virtual environment
 
 <p align="justify">
-A virtual environment allows us to manage libraries or dependencies for different projects without having the version compatibility problem by creating isolated virtual environments for them. There are many environments managment systems for python such as conda, pipenv, venv, virtualenv and so on, but for this project I used pipenv. 
+A virtual environment allows us to manage libraries or dependencies for different projects without having version compatibility problem by creating isolated virtual environments for them. There are many environments managment systems for python such as conda, pipenv, venv, virtualenv and so on, but for this project I used pipenv. 
 </p>
 
 <p align="justify">
 Next, I'll explain how to install pipenv, and create an environment for a python project.
-Before starting , first we need to install pip, which is a package-management system to install python packages, run these codes in the console.
+Before starting , first we need to install pip, which is a package-management system to install python packages. Run these codes in the console.
 </p>
 
 > For windows:
@@ -83,11 +83,11 @@ After that, we need to activate the virtual environment
   
     pipenv shell
     
-And install the content of these file`Pipfile` and `Pipfile.lock`, these ones contain information about the libraries and dependencies I used.
+And install the content of these files `Pipfile` and `Pipfile.lock`, these ones contain information about the libraries and dependencies I used.
 
     pipenv install
     
-To exit the environment just type exit, when you are in the environment
+To exit the environment just type exit
   
     exit
     
@@ -101,7 +101,7 @@ For this project I used these libraries:
 ## 5. Importing data
 
 <p align="justify">
-We can download the data from the web : https://www.muratkoklu.com/datasets/vtdhnd06.php, this file is a zip file, so we need to make a request to that URL, save its content and extract all files it contains, the code below is the first part of the `Date_Fruit_Classification.ipynb` and allows you to download it to the current path. The archive we are interested in is Date_Fruit_Datasets.xlsx, which is an excel extension and this is the data that I'll work all the project, also this data is in the repository `Date_Fruit_Datasets`.
+We can download the data from the web : https://www.muratkoklu.com/datasets/vtdhnd06.php, this file is a zip file, so we need to make a request to that URL, save its content and extract all the files it contains, the code below is the first part of the Date_Fruit_Classification.ipynb and allows you to download it to the current path. The archive we are interested in is `Date_Fruit_Datasets.xlsx` , which is an excel extension and this is the data that I'll work all the project.
 </p>
 
     # Importing necessary modules
@@ -119,13 +119,13 @@ We can download the data from the web : https://www.muratkoklu.com/datasets/vtdh
     zipfile.extractall('./') #Current directory
 
 ## 6. Notebook
-
-Data preparation, data cleaning, EDA, feature importance analysis, model selection and parameter tuning was performed in `Date_Fruit_Classification.ipynb` 
+<p align="justify">
+Data preparation, data cleaning, EDA, feature importance analysis, model selection and parameter tuning was performed in Date_Fruit_Classification.ipynb
+</p>
  
 ### 6.1. Data preparation and data cleaning 
-
 <p align="justify">
-The data contains 898 examples, 33 features, and a target variable of 7 classes, this was explained in [Data description](#3-data-description). These features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information. The dataframe doesn't contain missing values,  and to train the model it is required to change the target variable from object to numerical like below.
+The data contains 898 examples, 33 features, and a target variable of 7 classes, this was explained in point (3.Data description).These features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information. The dataframe doesn't contain missing values, and to train the model it's required to change the target variable from object to numerical like below.
 </p>
 
 <p align="center">  
@@ -133,7 +133,7 @@ The data contains 898 examples, 33 features, and a target variable of 7 classes,
 </p>  
 
 <p align="justify"> 
-The main characteristic is that they are all numerical features, and some are bigger values than other ones, that's why I applied normalization with a mean equals to 0 and a standard deviation equals to  1. To do this part I used StandardScaler from sklearn.preprocessing to standarize all the features, then I saved the object using the `joblib` library with the name `std_scaler.bin`, this archive will be used later to make the predictions.
+The main characteristic is that they are all numerical features, and some are larger values than other ones, that's why I applied normalization with a mean equals to 0 and a standard deviation equals to  1. To do this part I used StandardScaler from sklearn.preprocessing to standarize all the features, then I saved the object using the `joblib` library with the name `std_scaler.bin`, this archive will be used later to make the predictions.
 </p>
 
 ### 6.2. Exploratory Data Analysis (EDA)
@@ -173,7 +173,7 @@ According to the notebook `Date_Fruit_Classification.ipynb` the steps to obtain 
   4. The function `N_Models` puts all the previous steps together and creates a number of best models, this was done since optuna trial starts randomly and I wanted to have several models to analyze instead of one.
   5. The final step is the stability test, in that part I tested the stability of four models, giving them as input different test sets of different sizes.
   
-The results show that in front of 150 test sets the best model is the third with a best accuracy value of `0.9333`, the architecture of this model is:
+The results show that in front of 150 different test sets the best model is the third one with a best accuracy value of `0.9333`, and the architecture of this model is:
 - Number of hidden layers :2 
 - Layer 1 number of neurons: 352
 - Layer 1 activation function: elu
