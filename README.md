@@ -181,10 +181,13 @@ The results show that in front of 150 test sets the best model is the third with
 - epsilon: 7.775386e-07
 
 </p>
-Box plot: 
+Model 3 Architecture: 
 <p align="center">
   <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/model_3_architecture.png">
 </p>
+
+## 7. Locally deployment 
+
 
 
 ## Instructions on how to run the project
