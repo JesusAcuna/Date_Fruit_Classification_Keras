@@ -23,7 +23,11 @@
 
 The repository contains the next files and folders:
 
-- `images`: folder with images to README.md
+- `images`: directory with images to README.md
+- `Date_Fruit_Classification.ipynb`:
+- `std_scaler.bin`:
+- `4_Models_000123`:
+- `150_Stability_045011`: 
 
 ## 1. Description of the problem
 
@@ -210,7 +214,9 @@ Steps:
     - The range of epochs set to [300,350,400,450,500]
     - Number of epochs multiplier set to 6
   
-   The output of `Date_Fruit_Classification.ipynb` are  the file `std_scaler.bin` and the directories `4_Models_000123`, `150_Stability_045011`
+   The output of `Date_Fruit_Classification.ipynb` are  the file `std_scaler.bin` and the directories `4_Models_000123`, `150_Stability_045011`. Inside `4_Models_000123` is the Model_3 directory with the file ``
+   
+  3. 
     
     
   
