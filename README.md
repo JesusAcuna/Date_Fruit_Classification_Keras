@@ -121,9 +121,11 @@ Data preparation, data cleaning, EDA, feature importance analysis, model selecti
 <p align="justify">
 The data contains 898 examples, 33 features, and a target variable of 7 classes, this was explained in [Data description](#3-data-description). These features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information. The dataframe doesn't contain missing values,  and to train the model it is required to change the target variable from object to numerical like below.
 </p>
+
 <p align="center">  
 ['DOKOL': 0, 'SAFAVI': 1, 'ROTANA': 2, 'DEGLET': 3, 'SOGAY': 4, 'IRAQI': 5, 'BERHI': 6]
 </p>  
+
 <p align="justify"> 
 The main characteristic is that they are all numerical features, and some are bigger values than other ones, that's why I applied normalization with a mean equals to 0 and a standard deviation equals to  1. To do this part I used StandardScaler from sklearn.preprocessing to standarize all the features, then I saved the object using the `joblib` library with the name `std_scaler.bin`, this archive will be used later to make the predictions.
 </p>
@@ -141,16 +143,35 @@ From the image below, we can see that there are about 200 examples where the tar
 ### 6.3. Feature importance analysis
 
 <p align="justify"> 
-Since all the features are numerical I did a Perason correlation coefficient analysis, which measures the linear relationship between two variables. This has to be done after normalization of the data as seen in [Data preparation and data cleaning](#data-preparation-and-data-cleaning) , you can visualize it below
+Since all the features are numerical I did a Pearson correlation coefficient analysis, which measures the linear relationship between two variables. This has to be done after normalization of the data, as seen in point (6.3. Data preparation and data cleaning), you can visualize it below 
 </p>
 
 <p align="center">
   <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/correlation.png">
 </p>
 
-
+<p align="justify"> 
+The results show that there are 13 features that have values below 1e-1, that means these 13 features are not correlated at all. so they could be deleted from the model to have a better result.
+</p>
 
 ### 6.4. Model selection
+
+<p align="justify"> 
+For model selection, I decided to choose a deep learning model tuned with Optuna library.
+The steps to obtain the best model is the following:
+  1. The function `MakeTrial` creates a trial with optuna library, and based on the parameter ranges of my model  optuna evaluates the best accuracy result of my model according to these parameters.
+  2. The function Study_Statistics shows the parameters of the best model such as number of hidden layers, activation function, learning rate, and so on.
+  3. The function MakeNeuralNetwork creates a bigger model in epochs of the best model obtained, this is to see if the best model went into overfitting.
+  4. The function N_Models puts all the previous steps together and creates a number of best models, this was done since optuna trial start randomly and I wanted to have several models to analyze instead of one.
+  5. The final step is the stability test, in that part I tested the stability of 4 models, giving them as input different test sets of different sizes.
+  
+The results show that in front of 150 test sets the best model is the third with a best accuracy value of 0.9333, 
+</p>
+
+<p align="center">
+  <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/box_plot.png">
+</p>
+
 
 ### 6.5. Parameter tuning
 
