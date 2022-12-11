@@ -6,10 +6,18 @@
 ---
 ## Index
 
-- 1 [Description of the problem](#1-description-of-the-problem)
+- 1.[Description of the problem](#1-description-of-the-problem)
+- 2.[Objective](#2-objective)
+- 3.[Data description](#3-data-description)
+- 4.[Setting up the virtual environment](#4-setting-up-the-virtual-environment)
+- 5.[Importing datan](#5-importing-data)
+- 6.[Notebook](#6-notebook)
+  - 6.1.[Data preparation and data cleaning ](#61-data-preparation-and-data-cleaning) 
+  - 6.2.[Exploratory Data Analysis (EDA)](#62-exploratory-data-analysis-eda)
+  - 6.3.[Feature importance analysis](#63-feature-importance-analysis)
+  - 6.4.[Model selection and parameter tuning](#64-model-selection-and-parameter-tuning)
+- 7.[Locally deployment](#7-locally-deployment)
 
-- 2 [Instructions on how to run the project](#instructions-on-how-to-run-the-project)
--
 ---
 ## Structure of the repository
 
@@ -112,9 +120,7 @@ We can download the data from the web : https://www.muratkoklu.com/datasets/vtdh
 
 ## 6. Notebook
 
-<p align="justify">
 Data preparation, data cleaning, EDA, feature importance analysis, model selection and parameter tuning was performed in `Date_Fruit_Classification.ipynb` 
-</p>
  
 ### 6.1. Data preparation and data cleaning 
 
@@ -159,23 +165,9 @@ The results show that there are 13 features that have values below 1e-1, that me
 <p align="justify"> 
 For model selection, I decided to choose a deep learning model tuned with Optuna library, for more information about optuna library you can check it out for more examples with keras in https://github.com/optuna/optuna-examples/tree/main/keras 
 
-According to the notebook the steps to obtain the best model are the following,:
+According to the notebook `Date_Fruit_Classification.ipynb` the steps to obtain the best model are the following:
 
-  1. The function `MakeTrial` creates a trial with optuna librar
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-, and based on the parameter ranges of my model  optuna evaluates the best accuracy result of my model according to these parameters.
+  1. The function `MakeTrial` creates a trial with optuna library and based on the parameter ranges of my model  optuna evaluates the best accuracy result of my model according to these parameters.
   2. The function `Study_Statistics` shows the parameters of the best model such as number of hidden layers, activation function, learning rate, and so on.
   3. The function `MakeNeuralNetwork` creates a bigger model in epochs of the best model obtained, this is to see if the best model went into overfitting.
   4. The function `N_Models` puts all the previous steps together and creates a number of best models, this was done since optuna trial starts randomly and I wanted to have several models to analyze instead of one.
@@ -201,10 +193,6 @@ Model 3 Architecture:
 </p>
 
 ## 7. Locally deployment 
-
-
-
-## Instructions on how to run the project
 
 
 
