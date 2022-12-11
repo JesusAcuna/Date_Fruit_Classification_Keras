@@ -220,7 +220,9 @@ Steps:
    
   3. Run the file `converter_to_tflite.py` to convert the model `Best_Model_3.h5` to `Best_Model_3.tflite`, since the tensorFlow library is big and we need to use a tensorFlow lite library, which is a lighter library to predict.
     
-  4. Run the file `predict.py` 
+  4. Run the file `predict.py` to run the web server locally.
+  
+  5. Run the file `predict_test.py` 
     
   
   in console type:
