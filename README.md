@@ -25,11 +25,22 @@
 
 The repository contains the next files and folders:
 
+- `150_Stability_045011`: directory of the stability with different test sizes of the 4 trained models 
+- `4_Models_000123`: directory of model history and parameters
+- `Date_Fruit_Datasets`: irectory of the data set
 - `images`: directory with images to README.md
-- `Date_Fruit_Classification.ipynb`:
-- `std_scaler.bin`:
-- `4_Models_000123`:
-- `150_Stability_045011`: 
+- `Best_Model_3.h5`: archive of best chosen model 
+- `Best_Model_3.tflite`: archive with extension tensorflow lite of best chosen model
+- `Date_Fruit_Classification.ipynb`: python notebook where the analysis and modeling is done
+- `Dockerfile`: archive to containerize the project
+- `Pipfile`: archive to save the dependencies and libraries of the environment
+- `Pipfile.lock`: archive to save the cache of the environment
+- `convert_to_tflite.py`: python script to convert a h5 file to tfile file
+- `predict.py`: python script to make the web service with method 'POST' and upload the parameters of best model
+- `predict_test.py`: python script to make a request locally
+- `predict_test_cloud.py`: python script to make a request to Google Cloud Platform (GCP)
+- `std_scaler.bin`: binary archive with the training normalization values 
+- `train.py`: python script to train the model
 
 ## 1. Description of the problem
 
