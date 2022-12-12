@@ -310,10 +310,19 @@ Steps:
   
     docker push gcr.io/date-fruit-classification/date-fruit-image:latest
     
+  <p align="center">
+    <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/container_registry.png">
+   </p>    
+   
+    
   10. Deploy the image
    
-    gcloud run deploy date-fruit-image --image gcr.io/date-fruit-classification/date-fruit-image:latest --port 9696 --platform managed --max-instances 15 --region us-central1 --allow-unauthenticated --memory 1Gi
-
+    gcloud run deploy date-fruit-image --image gcr.io/date-fruit-classification/date-fruit-image:latest --port 9696 --max-instances 15 --platform managed --region us-central1 --allow-unauthenticated --memory 1Gi
+    
+  <p align="center">
+    <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/google_cloud.png">
+   </p>
+    
   For more information on how to deploy : https://cloud.google.com/sdk/gcloud/reference/run/deploy
   
     #To delete a service
@@ -328,4 +337,14 @@ Steps:
   
 ## 10. References
 
+  Google Cloud Reference Documentation
+  https://cloud.google.com/sdk/gcloud/reference
+  Docker run reference
+  https://docs.docker.com/engine/reference/run/
+  Flask micro web framework
+  https://flask.palletsprojects.com/en/2.2.x/
+  
+  
+  
+  
 
