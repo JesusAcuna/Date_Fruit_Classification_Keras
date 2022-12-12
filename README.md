@@ -254,16 +254,24 @@ change two things in `Dockerfile`, first after this line `RUN pipenv install --s
   5. Run the docker entering this command:
   
   Windows
+  
     winpty docker run -it --rm -p 9696:9696 date_fruit_classification:latest
 
   Linux
+  
     docker run -it --rm -p 9696:9696 date_fruit_classification:latest
       
   <p align="center">
     <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/docker_run.png">
   </p>
 
-
+  6. Activate the environment created with `pipenv shell`, and make a predict with `predict_test.py`, the result is as follows:
+  
+   <p align="center">
+    <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/predict.png">
+   </p>
+  
+  
 ## 9. Cloud deployment 
 
 
