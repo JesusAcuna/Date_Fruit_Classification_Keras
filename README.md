@@ -301,10 +301,25 @@ Steps:
   7. Activate Google Container Registry API 
 
     gcloud services enable containerregistry.googleapis.com
+    
+  8. To configure docker authentication run, this is for the next step : 
+  
+    gcloud auth configure-docker
 
-  8. Push the  image to Google Container Registry 
+  9. Push the  image to Google Container Registry 
   
     docker push gcr.io/date-fruit-classification/date-fruit-image:latest
+    
+  10. 
+   
+    gcloud run deploy date-fruit-image --image gcr.io/date-fruit-classification/date-fruit-image:latest --port 9696 --platform managed --max-instances 15 --region us-central1 --allow-unauthenticated --memory 1Gi
+
+
+  For more information: https://cloud.google.com/sdk/gcloud/reference/run/deploy
+  
+  11.
+  
+  gcloud run services delete date-fruit-image --region us-central1
 
 
 ## 10. References
