@@ -16,8 +16,10 @@
   - 6.2.[Exploratory Data Analysis (EDA)](#62-exploratory-data-analysis-eda)
   - 6.3.[Feature importance analysis](#63-feature-importance-analysis)
   - 6.4.[Model selection and parameter tuning](#64-model-selection-and-parameter-tuning)
-- 7.[Notebook](#6-notebook)
-- 8.[ 
+- 7.[Instructions on how to run the project](#7-instructions-on-how-to-run-the-project)
+- 8.[Locally deployment](#8-locally-deployment)
+- 9.[Google Cloud deployment (GCP)](#9-google-cloud-deployment-gcp)
+- 10.[References](#10-references)
 ---
 ## Structure of the repository
 
@@ -272,7 +274,7 @@ change two things in `Dockerfile`, first after this line `RUN pipenv install --s
    </p>
   
   
-## 9. Cloud deployment (GCP)
+## 9. Google Cloud deployment (GCP)
 
 Steps:
 
@@ -291,6 +293,7 @@ Steps:
   5. To select a project:
   
     gcloud config set project date-fruit-classification
+    
     # To see what is the active project 
     gcloud config list project
     
@@ -314,7 +317,6 @@ Steps:
     <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/container_registry.png">
    </p>    
    
-    
   10. Deploy the image
    
     gcloud run deploy date-fruit-image --image gcr.io/date-fruit-classification/date-fruit-image:latest --port 9696 --max-instances 15 --platform managed --region us-central1 --allow-unauthenticated --memory 1Gi
@@ -328,7 +330,7 @@ Steps:
     #To delete a service
     gcloud run services delete date-fruit-image --region us-central1
 
-  11. Activate the environment created with `pipenv shell`, and make a request with `predict_test_cloud.py`, the result is as follows:
+  11. The web service was available on https://date-fruit-image-zpte776wvq-uc.a.run.app/predict, and the request I made with `predict_test_cloud.py` is in the image below, but if you do a deployment replace the URL they give you in `predict_test_cloud.py`.
 
   <p align="center">
     <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/predict_cloud.png">
