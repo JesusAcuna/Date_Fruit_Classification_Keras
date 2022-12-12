@@ -310,18 +310,22 @@ Steps:
   
     docker push gcr.io/date-fruit-classification/date-fruit-image:latest
     
-  10. 
+  10. Deploy the image
    
     gcloud run deploy date-fruit-image --image gcr.io/date-fruit-classification/date-fruit-image:latest --port 9696 --platform managed --max-instances 15 --region us-central1 --allow-unauthenticated --memory 1Gi
 
-
-  For more information: https://cloud.google.com/sdk/gcloud/reference/run/deploy
+  For more information on how to deploy : https://cloud.google.com/sdk/gcloud/reference/run/deploy
   
-  11.
+    #To delete a service
+    gcloud run services delete date-fruit-image --region us-central1
+
+  11. Activate the environment created with `pipenv shell`, and make a request with `predict_test_cloud.py`, the result is as follows:
+
+  <p align="center">
+    <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/predict_cloud.png">
+  </p>
   
-  gcloud run services delete date-fruit-image --region us-central1
-
-
+  
 ## 10. References
 
 
