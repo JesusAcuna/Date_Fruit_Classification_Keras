@@ -272,9 +272,39 @@ change two things in `Dockerfile`, first after this line `RUN pipenv install --s
    </p>
   
   
-## 9. Cloud deployment 
+## 9. Cloud deployment (GCP)
 
+Steps:
 
+  1. Create a Google Cloud Platform (GCP) account
+  
+  2. Install the gcloud CLI, you can follow the instrucctions here https://cloud.google.com/sdk/docs/install ,this is to be able to use gcloud console commands 
+  
+  3. Create a project:
+    
+    gcloud projects create date-fruit-classification 	
+
+  4. To see all the projects you've created run the following:
+  
+    gcloud projects list 
+    
+  5. To select a project:
+  
+    gcloud config set project date-fruit-classification
+    # To see what is the active project 
+    gcloud config list project
+    
+  6. Create a tag to the image
+  
+    docker tag date_fruit_classification:latest gcr.io/date-fruit-classification/date-fruit-image:latest
+    
+  7. Activate Google Container Registry API 
+
+    gcloud services enable containerregistry.googleapis.com
+
+  8. Push the  image to Google Container Registry 
+  
+    docker push gcr.io/date-fruit-classification/date-fruit-image:latest
 
 
 ## 10. References
