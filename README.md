@@ -26,21 +26,21 @@
 The repository contains the next files and folders:
 
 - `150_Stability_045011`: directory of the stability with different test sizes of the 4 trained models 
-- `4_Models_000123`: directory of model history and parameters
-- `Date_Fruit_Datasets`: irectory of the data set
+- `4_Models_000123`: directory of models history and parameters
+- `Date_Fruit_Datasets`: directory of the data set
 - `images`: directory with images to README.md
 - `Best_Model_3.h5`: archive of best chosen model 
 - `Best_Model_3.tflite`: archive with extension tensorflow lite of best chosen model
 - `Date_Fruit_Classification.ipynb`: python notebook where the analysis and modeling is done
 - `Dockerfile`: archive to containerize the project
 - `Pipfile`: archive to save the dependencies and libraries of the environment
-- `Pipfile.lock`: archive to save the cache of the environment
+- `Pipfile.lock`: archive to save the cache of `Pipfile`
 - `convert_to_tflite.py`: python script to convert a h5 file to tfile file
-- `predict.py`: python script to make the web service with method 'POST' and upload the parameters of best model
+- `predict.py`: python script to make the web service with method 'POST' and upload the parameters of `Best_Model_3.tflite`
 - `predict_test.py`: python script to make a request locally
-- `predict_test_cloud.py`: python script to make a request to Google Cloud Platform (GCP)
+- `predict_test_cloud.py`: python script to make a request on Google Cloud Platform (GCP)
 - `std_scaler.bin`: binary archive with the training normalization values 
-- `train.py`: python script to train the model
+- `train.py`: python script to train the model and get `150_Stability_045011`,`4_Models_000123`,`Date_Fruit_Datasets` and `std_scaler.bin`
 
 ## 1. Description of the problem
 
@@ -114,13 +114,12 @@ For this project I used these libraries:
 - requests       : to make request to the web service 
 - joblib         : to load the normalization object
 - scikit-learn   : to apply the normalization transformation to our request
-- waitress       :
+- waitress       : to build a production web service on Windows
+- gunicorn       : to build a production web service on Linux
 
 ## 5. Importing data
 
-<p align="justify">
-We can download the data from the web : https://www.muratkoklu.com/datasets/vtdhnd06.php, this file is a zip file, so we need to make a request to that URL, save its content and extract all the files it contains, the code below is the first part of the Date_Fruit_Classification.ipynb and allows you to download it to the current path. The archive we are interested in is `Date_Fruit_Datasets.xlsx` , which is an excel extension and this is the data that I'll work all the project.
-</p>
+We can download the data from the web : https://www.muratkoklu.com/datasets/vtdhnd06.php, this file is a zip file, so we need to make a request to that URL, save its content and extract all the files it contains, the code below is the first part of the `Date_Fruit_Classification.ipynb` and allows you to download it to the current path. The archive we are interested in is `Date_Fruit_Datasets.xlsx` , which is an excel extension and this is the data that I'll work all the project.
 
     # Importing necessary modules
     import requests, zipfile
@@ -137,13 +136,14 @@ We can download the data from the web : https://www.muratkoklu.com/datasets/vtdh
     zipfile.extractall('./') #Current directory
 
 ## 6. Notebook
-<p align="justify">
-Data preparation, data cleaning, EDA, feature importance analysis, model selection and parameter tuning was performed in Date_Fruit_Classification.ipynb
-</p>
+
+Data preparation, data cleaning, EDA, feature importance analysis, model selection and parameter tuning was performed in `Date_Fruit_Classification.ipynb`
  
 ### 6.1. Data preparation and data cleaning 
+
+The data contains 898 examples, 33 features, and a target variable of 7 classes, this was explained in point 3.[Data description](#3-data-description).
 <p align="justify">
-The data contains 898 examples, 33 features, and a target variable of 7 classes, this was explained in point (3.Data description).These features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information. The dataframe doesn't contain missing values, and to train the model it's required to change the target variable from object to numerical like below.
+These features are external appearance features such as area, perimeter, shape factor, color and so on, check the notebook out for more information. The dataframe doesn't contain missing values, and to train the model it's required to change the target variable from object to numerical like below.
 </p>
 
 <p align="center">  
@@ -151,7 +151,7 @@ The data contains 898 examples, 33 features, and a target variable of 7 classes,
 </p>  
 
 <p align="justify"> 
-The main characteristic is that they are all numerical features, and some are larger values than other ones, that's why I applied normalization with a mean equals to 0 and a standard deviation equals to  1. To do this part I used StandardScaler from sklearn.preprocessing to standarize all the features, then I saved the object using the `joblib` library with the name `std_scaler.bin`, this archive will be used later to make the predictions.
+The main characteristic is that they are all numerical features, and some are larger values than other ones, that's why I applied normalization with a mean equals to 0 and a standard deviation equals to  1. To do this part I used 'StandardScaler' from 'sklearn.preprocessing' to standarize all the features, then I saved the object using the `joblib` library with the name `std_scaler.bin`, this archive will be used later to make the predictions.
 </p>
 
 ### 6.2. Exploratory Data Analysis (EDA)
@@ -166,9 +166,7 @@ From the image below, we can see that there are about 200 examples where the tar
 
 ### 6.3. Feature importance analysis
 
-<p align="justify"> 
-Since all the features are numerical I did a Pearson correlation coefficient analysis, which measures the linear relationship between two variables. This has to be done after normalization of the data, as seen in point (6.3. Data preparation and data cleaning), you can visualize it below 
-</p>
+Since all the features are numerical I did a Pearson correlation coefficient analysis, which measures the linear relationship between two variables. This has to be done after normalization of the data, as seen in point 6.3.[Feature importance analysis](#63-feature-importance-analysis), you can visualize it below 
 
 <p align="center">
   <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/correlation.png">
@@ -185,7 +183,7 @@ For model selection, I decided to choose a deep learning model tuned with Optuna
 
 According to the notebook `Date_Fruit_Classification.ipynb` the steps to obtain the best model are the following:
 
-  1. The function `MakeTrial` creates a trial with optuna library and based on the parameter ranges of my model  optuna evaluates the best accuracy result of my model according to these parameters.
+  1. The function `MakeTrial` creates a trial with optuna library and based on the parameter ranges of my model, optuna evaluates the best accuracy result of my model according to these parameters.
   2. The function `Study_Statistics` shows the parameters of the best model such as number of hidden layers, activation function, learning rate, and so on.
   3. The function `MakeNeuralNetwork` creates a bigger model in epochs of the best model obtained, this is to see if the best model went into overfitting.
   4. The function `N_Models` puts all the previous steps together and creates a number of best models, this was done since optuna trial starts randomly and I wanted to have several models to analyze instead of one.
@@ -228,13 +226,13 @@ Steps:
     - The range of epochs set to [300,350,400,450,500]
     - Number of epochs multiplier set to 6
   
-   The output of `Date_Fruit_Classification.ipynb` are  the file `std_scaler.bin` and the directories `4_Models_000123`, `150_Stability_045011`.
+   The output of `Date_Fruit_Classification.ipynb` are  the file `std_scaler.bin` and the directories `4_Models_000123`, `Date_Fruit_Datasets`, `150_Stability_045011`.
    
    Inside `4_Models_000123` is the Model_3 directory with the file `Best_Model_3.h5`, which contains all the parameters of the best model I trained. I will put    it inside the repository to be able to do the next step.
    
   3. Run the file `converter_to_tflite.py` to convert the model `Best_Model_3.h5` to `Best_Model_3.tflite`, since the tensorFlow library is big and we need to use a tensorFlow lite library, which is a lighter library to predict.
     
-  4. Run the file `predict.py` to run the web server locally. 
+  4. Run the file `predict.py` to run the web service locally. 
   
   5. Run the file `predict_test.py` to make a request to the web service, this file has an example labeled with class 'DOKOL'
   
@@ -249,13 +247,13 @@ Dockerfile contains all the specifications to build a container: python version,
 
 Steps:
 
-  1. Install it https://www.docker.com/, and if you're using WSL2 for running Linux as subsytem on Windows activate WSL Integration in Settings/Resources/WSL Integration.
+  1. Install docker: https://www.docker.com/, and if you're using WSL2 for running Linux as subsytem on Windows activate WSL Integration in Settings/Resources/WSL Integration.
   2. Open the console and locate in the repository where is the `Dockerfile` , if your using Windows there won't be any problem, but if you're using Linux
-change two things in `Dockerfile`, first after this line `RUN pipenv install --system --deploy` type:
+change two things in `Dockerfile`, first after the line `RUN pipenv install --system --deploy` type:
 
    RUN pipenv install gunicorn  
   
-  and the second change the entrypoint for this:
+  and second, change the entrypoint for this:
     
    ENTRYPOINT ["gunicorn","--bind=0.0.0.0:9696","predict:app"]
   
@@ -263,7 +261,10 @@ change two things in `Dockerfile`, first after this line `RUN pipenv install --s
 
     docker build -t date_fruit_classification .
   
-  4. Once you build the container you can chek all the images you created running this command:  `docker images`
+  4. Once you build the container you can chek all the images you created running this command:  
+  
+    docker images
+    
   5. Run the docker entering this command:
   
   Windows
@@ -289,7 +290,7 @@ change two things in `Dockerfile`, first after this line `RUN pipenv install --s
 
 Steps:
 
-  1. Create a Google Cloud Platform (GCP) account
+  1. Create a Google Cloud Platform (GCP) account https://cloud.google.com/
   
   2. Install the gcloud CLI, you can follow the instrucctions here https://cloud.google.com/sdk/docs/install ,this is to be able to use gcloud console commands 
   
@@ -347,10 +348,11 @@ Steps:
     <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/predict_cloud.png">
   </p>
   
+  12. All the previous steps can be done within the interface offered by GCP
   
 ## 10. References
 
- Google Cloud Reference Documentation
+ Google cloud reference documentation
  
  https://cloud.google.com/sdk/gcloud/reference
     
