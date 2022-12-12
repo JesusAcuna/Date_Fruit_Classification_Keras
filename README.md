@@ -95,6 +95,7 @@ Once here, it's necessary to clone this repository from Github to your computer,
     mkdir ./file_name
     cd ./file_name
     git clone git@github.com:JesusAcuna/Date_Fruit_Classification_Keras.git
+    cd Date_Fruit_Classification_Keras
 
 After that, we need to activate the virtual environment
   
