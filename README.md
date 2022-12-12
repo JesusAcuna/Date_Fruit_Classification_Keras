@@ -337,12 +337,25 @@ Steps:
   
 ## 10. References
 
-  Google Cloud Reference Documentation
-  https://cloud.google.com/sdk/gcloud/reference
-  Docker run reference
-  https://docs.docker.com/engine/reference/run/
-  Flask micro web framework
-  https://flask.palletsprojects.com/en/2.2.x/
+ Google Cloud Reference Documentation
+ 
+ https://cloud.google.com/sdk/gcloud/reference
+    
+ Docker run reference
+ 
+ https://docs.docker.com/engine/reference/run/
+    
+ Flask micro web framework
+ 
+ https://flask.palletsprojects.com/en/2.2.x/
+ 
+ Dataset Kaggle
+ 
+ https://www.kaggle.com/datasets/muratkokludataset/date-fruit-datasets
+ 
+ Optuna library
+ 
+ https://optuna.readthedocs.io/en/stable/index.html
   
   
   
