@@ -232,8 +232,41 @@ Steps:
   
 ## 8. Locally deployment 
 
+Dockerfile contains all the specifications to build a container: python version, virtual environment, dependencies, scripts ,files, and so on. To do the cloud deployment we first need to configure locally and conteinerize it with Docker
+
+Steps:
+
+  1. Install it https://www.docker.com/, and if you're using WSL2 for running Linux as subsytem on Windows activate WSL Integration in Settings/Resources/WSL Integration.
+  2. Open the console and locate in the repository where is the `Dockerfile` , if your using Windows there won't be any problem, but if you're using Linux
+change two things in `Dockerfile`, first after this line `RUN pipenv install --system --deploy` type:
+
+   RUN pipenv install gunicorn  
+  
+  and the second change the entrypoint for this:
+    
+   ENTRYPOINT ["gunicorn","--bind=0.0.0.0:9696","predict:app"]
+  
+  3. Build the docker and enter this command:
+
+    docker build -t date_fruit_classification .
+  
+  4. Once you build the container you can chek all the images you created running this command:  `docker images`
+  5. Run the docker entering this command:
+  
+  Windows
+    winpty docker run -it --rm -p 9696:9696 date_fruit_classification:latest
+
+  Linux
+    docker run -it --rm -p 9696:9696 date_fruit_classification:latest
+      
+  <p align="center">
+    <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/docker_run.png">
+  </p>
+
 
 ## 9. Cloud deployment 
+
+
 
 
 ## 10. References
