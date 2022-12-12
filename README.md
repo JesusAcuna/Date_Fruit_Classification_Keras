@@ -103,7 +103,7 @@ After that, we need to activate the virtual environment
     
 And install the content of these files `Pipfile` and `Pipfile.lock`, these ones contain information about the libraries and dependencies I used.
 
-    pipenv install
+    pipenv install --skip-lock
     
 To exit the environment just type exit
   
