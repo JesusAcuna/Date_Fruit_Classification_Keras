@@ -33,12 +33,11 @@ The repository contains the next files and folders:
 - `Best_Model_3.tflite`: archive with extension tensorflow lite of best chosen model
 - `Date_Fruit_Classification.ipynb`: python notebook where the analysis and modeling is done
 - `Dockerfile`: archive to containerize the project
-- `Pipfile`: archive to save the dependencies and libraries of the environment
-- `Pipfile.lock`: archive to save the cache of `Pipfile`
 - `convert_to_tflite.py`: python script to convert a h5 file to tfile file
 - `predict.py`: python script to make the web service with method 'POST' and upload the parameters of `Best_Model_3.tflite`
 - `predict_test.py`: python script to make a request locally
 - `predict_test_cloud.py`: python script to make a request on Google Cloud Platform (GCP)
+- `requirements.txt`: archive with the dependencies and libraries
 - `std_scaler.bin`: binary archive with the training normalization values 
 - `train.py`: python script to train the model and get `150_Stability_045011`,`4_Models_000123`,`Date_Fruit_Datasets` and `std_scaler.bin`
 
@@ -87,7 +86,16 @@ Before starting , first we need to install pip, which is a package-management sy
 Then after installing pip, we need to install pipenv
     
     pip install pipenv
+
+To exit the environment just type exit
+  
+    exit
     
+<b> IMPORTANT </b> 
+ 
+<b> Since the tf lite library doesn't support environments, in this project I didn't include a virtual environment, instead I made a `requirements.txt` file to install the necessary libraries. You can take a look at the page : https://www.tensorflow.org/lite/guide/python 
+</b>
+
 <p align="justify">
 Once here, it's necessary to clone this repository from Github to your computer, so create a folder in the path of your choice, and give it a name.
 </p>
@@ -97,18 +105,11 @@ Once here, it's necessary to clone this repository from Github to your computer,
     git clone git@github.com:JesusAcuna/Date_Fruit_Classification_Keras.git
     cd Date_Fruit_Classification_Keras
 
-After that, we need to activate the virtual environment
-  
-    pipenv shell
     
-And install the content of these files `Pipfile` and `Pipfile.lock`, these ones contain information about the libraries and dependencies I used.
+And install the content of this file `requirements.txt`, this one contains information about the libraries and dependencies I used.
 
-    pipenv install --skip-lock
-    
-To exit the environment just type exit
-  
-    exit
-    
+    pip install -r requirements.txt
+
 For this project I used these libraries:
 - flask          : to build the web service framework
 - tflite-runtime : lite tensorflow library for prediction
