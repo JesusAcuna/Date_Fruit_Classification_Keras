@@ -1,0 +1,7 @@
+flask
+tflite-runtime
+requests
+joblib
+scikit-learn
+waitress
+
