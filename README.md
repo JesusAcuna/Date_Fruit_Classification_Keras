@@ -69,7 +69,7 @@ A virtual environment allows us to manage libraries or dependencies for differen
 </p>
 
 <p align="justify">
-Next, I'll explain how to install pipenv, and create an environment for a python project.
+Next, I'll explain how to install pipenv.
 Before starting , first we need to install pip, which is a package-management system to install python packages. Run these codes in the console.
 </p>
 
@@ -87,9 +87,6 @@ Then after installing pip, we need to install pipenv
     
     pip install pipenv
 
-To exit the environment just type exit
-  
-    exit
     
 <b> IMPORTANT </b> 
  
@@ -235,7 +232,7 @@ Steps:
     
   3. Run the file `predict.py` to run the web service locally. 
   
-  5. Run the file `predict_test.py` to make a request to the web service, this file has an example labeled with class 'DOKOL'
+  4. Run the file `predict_test.py` to make a request to the web service, this file has an example labeled with class 'DOKOL'
   
   This is the result of the request: 
   
@@ -280,7 +277,7 @@ change two things in `Dockerfile`, first after the line `RUN pip install -r requ
     <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/docker_run.png">
   </p>
 
-  6. Activate the environment created with `pipenv shell`, and make a predict with `predict_test.py`, the result is as follows:
+  6. Make a predict with `predict_test.py`, the result is as follows:
   
    <p align="center">
     <img src="https://github.com/JesusAcuna/Date_Fruit_Classification_Keras/blob/main/images/predict.png">
