@@ -90,8 +90,8 @@ Then after installing pip, we need to install pipenv
     
 <b> IMPORTANT </b> 
  
-<b> Since the tf lite library doesn't support environments, in this project I didn't include a virtual environment, instead I made a `requirements.txt` file to install the necessary libraries. You can take a look at the page : https://www.tensorflow.org/lite/guide/python 
-</b>
+<b>Since the tf lite library doesn't support environments, in this project I didn't include a virtual environment, instead I made a `requirements.txt` file to install the necessary libraries. You can take a look at the page : https://www.tensorflow.org/lite/guide/python </b>
+
 
 <p align="justify">
 Once here, it's necessary to clone this repository from Github to your computer, so create a folder in the path of your choice, and give it a name.
@@ -247,13 +247,15 @@ Steps:
 
   1. Install docker: https://www.docker.com/, and if you're using WSL2 for running Linux as subsytem on Windows activate WSL Integration in Settings/Resources/WSL Integration.
   2. Open the console and locate in the repository where is the `Dockerfile` , if your using Windows there won't be any problem, but if you're using Linux
-change two things in `Dockerfile`, first after the line `RUN pip install -r requirements.txt:
+change two things in `Dockerfile`.
 
-   RUN pip install gunicorn  
+> first after the line `RUN pip install -r requirements.txt`:
+
+     RUN pip install gunicorn  
   
-  and second, change the entrypoint for this:
+> and second, change the entrypoint for this:
     
-   ENTRYPOINT ["gunicorn","--bind=0.0.0.0:9696","predict:app"]
+    ENTRYPOINT ["gunicorn","--bind=0.0.0.0:9696","predict:app"]
   
   3. Build the docker and enter this command:
 
@@ -265,11 +267,11 @@ change two things in `Dockerfile`, first after the line `RUN pip install -r requ
     
   5. Run the docker entering this command:
   
-  Windows
+  > Windows
   
     winpty docker run -it --rm -p 9696:9696 date_fruit_classification:latest
 
-  Linux
+  > Linux
   
     docker run -it --rm -p 9696:9696 date_fruit_classification:latest
       
